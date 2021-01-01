@@ -1,6 +1,7 @@
 asgiref==3.3.1
 cffi==1.14.4
 cryptography==3.3.1
+dj-database-url==0.5.0
 Django==3.1.4
 django-appconf==1.0.4
 django-crispy-forms==1.10.0
