@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-box">
+
+  <p class="bold-text">Before we begin, a bit of an explanation about what we’re doing. The process will be very simple, there’s really only three steps to it:</p>
+  
+  <div class="bullet-point">
+    <ul>
+      <li>Creating a user, so we can get your contact information and email you when the time comes</li>
+      <li>Creating the letter itself</li>
+      <li>Living your life, maybe even forgetting about this and getting an email in about a year’s time with the letter</li>  
+    </ul>
+  </div>
+
+  <p class="bold-text">There’s also a couple of things that are important to keep in mind about this service:</p>  
+
+  <div class="bullet-point">
+    <ul>
+      <li>The text you write or upload is encrypted so it remains private and no one can read it (not even the developer), so you can rest assured that your privacy is taken good care of</li>
+      <li>This is very new, so if you want to send feedback we’ll be very grateful. At the end of the process you'll see a confirmation page with an email you can send us to provide feedback</li>
+    </ul>  
+  </div>
+
+  <p class="bold-text">Does that all make sense? Happy? If you want to get started, click next to continue</p>
+</div>
+
+<a href="{% url 'account:register' %}" class="btn btn-outline-dark">Next</a>
+
+{% endblock %}

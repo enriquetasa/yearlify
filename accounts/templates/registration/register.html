@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<p>Let’s get you signed up first - enter your information below.</p>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    {{ field | as_crispy_field }}
+    <br>
+    <br>
+  {% endfor %}
+  <button type="submit" class="btn btn-outline-dark">Register</button>
+</form>
+{% endblock %}

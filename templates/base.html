@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Yearlify</title>
+  <meta name="author" content="Enrique Tasa">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+  <style>
+    body {
+      background-color: linen;
+      text-align: center;
+      min-height: 75rem;
+      padding-top: 4.5rem;
+    }
+    .text-box {
+      margin-left: 20%;
+      margin-right: 20%;
+      text-align: center;
+    }
+    .bullet-point{
+      text-align: justify;
+      margin-left: 23%;
+      margin-right: 23%;
+    }
+    .asteriskField {
+      display: none;
+    }
+    #hint_id_password2 {
+         display: none;
+     }
+    .bold-text {
+      font-weight: bold;
+    }
+    </style>
+<!-- TODO - this is a hacky way of suppresing form elements, make sure to change it-->
+</head> 
+
+<main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+{% include 'footer.html' %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

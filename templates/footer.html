@@ -1,0 +1,29 @@
+<style type="text/css">
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .centered-small-text {
+    display: inline-block;
+    text-size-adjust: 50%;
+    padding-left: 30px;
+    
+  }
+  a {
+    color: grey;
+  }
+</style>
+
+<footer class="footer mt-auto py-3 fixed-bottom" style="background-color: linen;">
+  <div class="container" style="padding: 0 15px">
+    {% if request.user.is_authenticated %}
+    <span class="text-muted centered-small-text"><a href="{% url 'letters:list' %}">your schedule</a></span>
+    <span class="text-muted centered-small-text"><a href="{% url 'account:logout' %}">logout</a></span>
+    {% else %}
+    <span class="text-muted centered-small-text"><a href="{% url 'account:login' %}">login</a></span>
+    {% endif %}
+    <span class="text-muted centered-small-text"><a href="{% url 'home' %}">home</a></span>
+  </div>
+</footer>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<p>Paste your letter here - we're trying to build the website so you can write the letter in your browser, but it's still a work in progress. We have to make due with this for now - sorry!</p>
+<p>The letter can be as long (or short!) as you want.</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-outline-dark">Save</button>
+</form>
+{% endblock %}
