@@ -1,10 +1,14 @@
 from pathlib import Path
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-from .prod import *
+ALLOWED_HOSTS = ['yearlify.com']
 
-ALLOWED_HOSTS = []
+# SECURITY
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 
 # APPLICATION
 
@@ -32,6 +36,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / config('DDBB_NAME', cast=str),
+    }
+}
+
 # TEMPLATES AND STATIC FILES
 
 TEMPLATES = [
@@ -52,11 +63,13 @@ TEMPLATES = [
     },
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # CONFIGURATION
 
@@ -73,3 +86,20 @@ USE_L10N = True
 USE_TZ = True
 
 TIME_ZONE = 'Europe/Madrid'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    }
+]
+
+# URLs
+ROOT_URLCONF = 'yearlify.urls'
+LOGIN_URL = 'account:login'
+REGISTER_URL = 'account:register'
+LOGIN_REDIRECT_URL = 'letters:list'
+REGISTER_REDIRECT_URL = 'letters:compose'
+LOGOUT_REDIRECT_URL = 'home'
+
+# CUSTOMISATION
+AUTH_USER_MODEL = 'accounts.User'
